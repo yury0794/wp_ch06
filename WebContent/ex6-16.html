@@ -4,37 +4,52 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-function myFunction( ) {
-  // 값
-  alert("I have an argument! " + arguments[0] );
-	  
-  // 객체
-  alert(arguments[1].bar);
-	  
-  // 함수 
-  arguments[2]();
-} 
+function sum1(a, b) {
+	return a+b;
+}
 
+var sum2 = function(a, b) {
+	return a+b;
+}
 
-var b = { bar: "baz" };
+var sum3 = new Function("a", "b", "return a+b;");
 
-/*
-var f = function(){ 
-	alert("Victory!");
-} 
-*/
+console.log(sum1(10, 20));
+console.log(sum2(10, 20));
+console.log(sum3(10, 20));
+console.log(sum2(10));
 
-/*
-myFunction( "foo", { bar: "baz"}, funtion(){ 
-	alert("Victory");
-});
-*/
+// 함수의 argument
+var myFunction = function(arg1, arg2, arg3){
+	console.log(arg1);
+	console.log(arg2.name);
+	console.log(arg3);
+}
 
+myFunction(10, {name:"전유리"}, function(){return "Hello Worldd"});
 
-(function(){ 
-	alert("Victory");
-})();
+(function(a, b) {
+	var sum = a+b;
+	console.log(sum);
+})(10, 20);
 
+var myFunction2 = function() {
+	if(arguments.length >= 1) {
+		console.log(arguments[0]);
+	}
+	
+	if(arguments.length >= 2) {
+		console.log(arguments[1].name);
+	}
+	
+	if(arguments.length >= 3) {
+		console.log(arguments[2]());
+	}
+}
+
+myFunction2(10);
+myFunction2(20, {name:"전유리"});
+myFunction2(30, {name:"전유리"}, function(){return "hello";});
 
 </script>
 </head>

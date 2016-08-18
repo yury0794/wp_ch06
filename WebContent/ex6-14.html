@@ -4,25 +4,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-var d = new Date(2013, 6, 23);  //2013 년 7월 23일  
-document.write(
-  " 년도: " + (d.getYear() + 1900) + "<BR>" + 
-  " 월: " + (d.getMonth() + 1) + "<BR>" + 
-  " 일은: " + d.getDate() + "<BR>" + 
-  " 요일은: " + d.getDay() + "<BR>" + 
-  " 시는: " + d.getHours() + "<BR>" + 
-  " 분은: " + d.getMinutes() + "<BR>" + 
-  " 초는: " + d.getSeconds() + "<BR>" + 
-  " 밀리초: " + d.getMilliseconds() + "<HR>" );
- 
-d.setYear(2014);  // 2014년 세팅
-document.write(d + "<HR>");
-document.write(d.getDay() + "<HR>");
+var d1 = new Date();
+console.log(d1);
 
-d.setMonth( 11 ); // 12월 세팅
-document.write(d + "<HR>");
+var d2 = new Date(2012, 8, 18); // 월 : 0-11
+console.log(d2);
 
+var d3 = new Date(30000*1000); // milliseconds
+console.log(d3);
 
+var days = ["일", "화", "수", "목", "금", "토"];
+console.log(d1.getYear() + 1900);
+console.log(d1.getMonth() + 1);
+console.log(d1.getDate());
+console.log(d1.getDay()); // 0->일요일, 6->토요일
+console.log(days[d1.getDay()-1]);
+console.log(d1.getMinutes());
+console.log(d1.getSeconds());
 </script>
 </head>
 <body>

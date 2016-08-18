@@ -7,20 +7,35 @@
 var colors = ["blue", "black", "red", "green"];
 var size = colors.length;
 
-for(var i = 0; i < size; i++){
-	document.write(
-			"<div style='"	+
-			
-			"width:100px;"	+
-			
-			"height:100px;"	+
-			
-			"background-color:"  + colors[i] + ";"    +
-			
-			"'>" +
-			
-			"</div>" );
-	
+console.log(size);
+for(var i=0;i<size;i++){
+	console.log(colors[i]);
+}
+
+var Rectangle = function(x1, y1, x2, y2, color) {
+	this.x1 = x1;
+	this.y1 = y1;
+	this.x2 = x2;
+	this.y2 = y2;
+	this.color = color;	
+}
+
+Rectangle.prototype.show = function(){
+	   console.log(this.x1+","+this.y1+","+this.x2+","+this.y2+","+this.color);
+	   document.write("<div style='"+
+			   "left:" + this.x1 + "px;" +
+			   "top:" + this.y1 + "px;" +
+			   "width:" + (this.x2 - this.x1) + "px;" +
+			   "height:" + (this.y2 - this.y1) + "px;" +
+			   "background-color:" + this.color + ";" + 
+			   "color:white;" +
+			   "'>" + this.color +
+			   "</div>");
+}
+
+for(var i=0;i<size;i++){
+	var rect = new Rectangle(0+(100*i), 0+(100*i), 100+(100*i), 100+(100*i), colors[i]);
+	rect.show();
 }
 </script>
 </head>

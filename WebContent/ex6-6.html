@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/* Array 내장 객체 생성 */
+
+// 생성자
+var a1 = new Array();
+console.log(a1);
+
+var a2 = new Array(10); // 미리 크기는 정하는 것은 의미가 없다
+a2[20] = "hello";
+console.log(a2);
+
+var a3 = new Array(1, "Hello", true);
+console.log(a3);
+
+// 리터럴
+var a4 = [];
+console.log(a4);
+
+var a5 = [1, "Hello", true, function(){
+	console.log("world");
+},{
+	name:"전유리",
+	title:"학생"
+}];
+console.log(a5);
+
+var init = function() {
+	console.log("....");
+	document.body.onclick = function() {
+		console.log("onmouseover");
+	}
+}
+</script>
+</head>
+<body onload="init();">
+<h1>hello</h1>
+<p>
+	hello<br>
+	hello<br>
+	hello<br>
+	hello<br>
+	hello<br>
+	hello<br>
+</p>
+</body>
+</html>
