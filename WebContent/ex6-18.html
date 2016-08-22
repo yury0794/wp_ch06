@@ -3,44 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+var displayDate = function() {
+	var buttonElement = this;
+	buttonElement.innerText = "clicked";
 
-<script type="text/javascript">
+	var now = new Date();
+	var pElement = document.getElementById("demo");
+	pElement.innerHTML = "<em>" + (now.getYear() + 1900) + "년 "
+		+ (now.getMonth() + 1) + "월 " + (now.getDate()) + "일 "
+		+ (now.getHours()) + ":" + (now.getMinutes()) + ":"
+		+ (now.getSeconds()) + "</em>";
+}
+	
+var clearDate = function() {
+	var buttonElement = this;
+	buttonElement.innerText = "Try it";
 
-window.onunload = function(){
-	alert("!");	
+	var pElement = document.getElementById("demo");
+	pElement.innerHTML = "";
 }
 
-function onUnload = function(){
-	alert("진짜 나갈래?");	
-} 
-
-function onLoad(){
-	var btn = document.getElementById("myBtn");
-	btn.onclick = displayDate;
-	btn.onmouseover = displayDate;
-	btn.onmouseout = hideDate;	
+window.onload = function() {
+	console.log("onunload");
+	var buttonElement = document.getElementById("myBtn");
+	buttonElement.onclick = displayDate;
+	buttonElement.onmouseover = displayDate;
+	buttonElement.onmouseout = clearDate;
 }
 
-function displayDate(){
-   document.getElementById("demo").innerHTML = Date();
+// IE에서만 지원
+window.onunload = function() {
+	alert("onunload");
 }
-
-function hideDate(){
-   document.getElementById("demo").innerHTML = "";
-}
-
-
 </script>
 
 </head>
+<body>
 
-<body onload="onLoad()" onunload="onUnload()">
+	<p>
+		버튼을 클릭하면 <em>displayDate()</em> 함수가 실행 됩니다.
+	</p>
 
-<p>버튼을 클릭하면  <em>displayDate()</em> 함수가 실행 됩니다.</p>
+	<button id="myBtn">Try it</button>
 
-<button id="myBtn">Try it</button>
-
-<p id="demo"></p>
+	<p id="demo"></p>
 
 </body>
 </html>

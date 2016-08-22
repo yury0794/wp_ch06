@@ -4,16 +4,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-var changeText = function(el){
-	el.innerHTML = "Ooops!";
+var onH1Clicked = function(el) {	
+	console.log('clicked!' + el);
+	console.log(el.innerHTML);
+	// HTML & CSS 조작
+	el.innerHTML = "Clicked!";
+	el.style.backgroundColor = "#f00";
+	el.style.color = "#fff";
 }
 </script>
 </head>
 <body>
-<!--
-<h1 onclick="this.innerHTML='Ooops!';">Click on this text!</h1>
--->
-<h1 onclick="changeText(this)">Click on this text!</h1>
+<h1 onclick="onH1Clicked(this);">Click on this text!</h1>
 
 </body>
 </html>

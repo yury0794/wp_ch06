@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var checkCookie = function() {
+	if(navigator.cokkieEnabled == false) {
+		alert("쿠키를 사용 못하게 설정하였습니다.\n페이지 기능을 전부 사용할 수 없습니다.");
+	}
+}
+
+window.onload = function() {
+	checkCookie();
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

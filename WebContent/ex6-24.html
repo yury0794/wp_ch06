@@ -4,19 +4,26 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-function myFunction() {
-   var x = document.getElementById( "fname" );
-   x.value=x.value.toUpperCase();
+window.onload = function() {
+	var inputElement = document.getElementById("fname");
+	inputElement.onchange = function() {
+		var value = this.value;
+		this.value = value.toUpperCase();
+		
+	}
+	
+	var selectVal = document.getElementById("select-val");
+	selectVal.onchange = function() {
+		var index = this.selectedIndex;
+		console.log(index);
+		console.log(this.options[index].value);
+		console.log(this.options[index].innerText);
+	}
 }
-
-function selectChanged(){
-	alert("!");
-}
-
 </script>
 </head>
 <body>
-<select onchange="selectChanged()">
+<select id="select-val">
 	<option>value1</option>
 	<option>value2</option>
 	<option>value3</option>
